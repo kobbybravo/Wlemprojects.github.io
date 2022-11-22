@@ -1,13 +1,13 @@
-(function ($) {
+(function($) {
     "use strict";
-    
+
     // Dropdown on mouse hover
-    $(document).ready(function () {
+    $(document).ready(function() {
         function toggleNavbarMethod() {
             if ($(window).width() > 992) {
-                $('.navbar .dropdown').on('mouseover', function () {
+                $('.navbar .dropdown').on('mouseover', function() {
                     $('.dropdown-toggle', this).trigger('click');
-                }).on('mouseout', function () {
+                }).on('mouseout', function() {
                     $('.dropdown-toggle', this).trigger('click').blur();
                 });
             } else {
@@ -17,18 +17,18 @@
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });
-    
-    
+
+
     // Back to top button
-    $(window).scroll(function () {
+    $(window).scroll(function() {
         if ($(this).scrollTop() > 100) {
             $('.back-to-top').fadeIn('slow');
         } else {
             $('.back-to-top').fadeOut('slow');
         }
     });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+    $('.back-to-top').click(function() {
+        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
         return false;
     });
 
@@ -39,39 +39,39 @@
         smartSpeed: 1500,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="fa fa-angle-left" aria-hidden="true"></i>',
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            576:{
-                items:1
+            576: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             },
-            992:{
-                items:2
+            992: {
+                items: 2
             }
         }
     });
 
-
+ 
     // Portfolio isotope and filter
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
     });
 
-    $('#portfolio-flters li').on('click', function () {
+    $('#portfolio-flters li').on('click', function() {
         $("#portfolio-flters li").removeClass('active');
         $(this).addClass('active');
 
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
+        portfolioIsotope.isotope({ filter: $(this).data('filter') });
     });
 
 
@@ -81,23 +81,23 @@
         smartSpeed: 1500,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="fa fa-angle-left" aria-hidden="true"></i>',
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ],
         responsive: {
-            0:{
-                items:1
+            0: {
+                items: 1
             },
-            576:{
-                items:1
+            576: {
+                items: 1
             },
-            768:{
-                items:2
+            768: {
+                items: 2
             },
-            992:{
-                items:3
+            992: {
+                items: 3
             }
         }
     });
@@ -110,15 +110,29 @@
         items: 1,
         dots: false,
         loop: true,
-        nav : true,
-        navText : [
+        nav: true,
+        navText: [
             '<i class="fa fa-angle-left" aria-hidden="true"></i>',
             '<i class="fa fa-angle-right" aria-hidden="true"></i>'
         ]
     });
-    
+
     $('.carousel').carousel({
         interval: 9000
-      });
+    });
 })(jQuery);
+
+var myCarousel = document.querySelector('#carouselExampleCaptions')
+var carousel = new bootstrap.Carousel(myCarousel, {
+    interval: 2000,
+
+})
+
+function loader(){
+    document.querySelector('.loader-container').classList.add('active');
+  }
+  
+  function fadeOut(){
+    setTimeout(loader, 4000);
+  }
 
